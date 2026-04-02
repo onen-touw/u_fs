@@ -1,0 +1,64 @@
+\doxysection{File Opening Modes}
+\hypertarget{group__file__modes}{}\label{group__file__modes}\index{File Opening Modes@{File Opening Modes}}
+
+
+File opening modes corresponding to fopen() modes.  
+
+
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{ufo\+::file\+\_\+mode}} \{ \newline
+\mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa5f417e38a0e68ae1d604017efefeacd5}{ufo\+::file\+\_\+mode\+::read\+\_\+rb}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa4e74980eb6561eaf1bba98587be4ca64}{ufo\+::file\+\_\+mode\+::write\+\_\+wb}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa7af6e00d67b492b81a9dfdf435e5b4f9}{ufo\+::file\+\_\+mode\+::append\+\_\+ab}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743faaef882729694175c59cf873d32560920}{ufo\+::file\+\_\+mode\+::read\+\_\+write\+\_\+r\+\_\+b}}
+, \newline
+\mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fabde51015fcc71ac4bff7fd47c6d29736}{ufo\+::file\+\_\+mode\+::write\+\_\+read\+\_\+w\+\_\+b}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa96539ba40214979946c58a9cb1d66347}{ufo\+::file\+\_\+mode\+::append\+\_\+read\+\_\+a\+\_\+b}}
+ \}
+\begin{DoxyCompactList}\small\item\em File opening modes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File opening modes corresponding to fopen() modes. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}\label{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f} 
+\index{File Opening Modes@{File Opening Modes}!file\_mode@{file\_mode}}
+\index{file\_mode@{file\_mode}!File Opening Modes@{File Opening Modes}}
+\doxysubsubsection{\texorpdfstring{file\_mode}{file\_mode}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{ufo\+::file\+\_\+mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+File opening modes. 
+
+Correspond to the standard fopen modes with the addition of a binary flag \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{read\_rb@{read\_rb}!File Opening Modes@{File Opening Modes}}\index{File Opening Modes@{File Opening Modes}!read\_rb@{read\_rb}}}\Hypertarget{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa5f417e38a0e68ae1d604017efefeacd5}\label{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa5f417e38a0e68ae1d604017efefeacd5} 
+read\+\_\+rb&"{}rb"{} -\/ Read only, binary mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{write\_wb@{write\_wb}!File Opening Modes@{File Opening Modes}}\index{File Opening Modes@{File Opening Modes}!write\_wb@{write\_wb}}}\Hypertarget{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa4e74980eb6561eaf1bba98587be4ca64}\label{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa4e74980eb6561eaf1bba98587be4ca64} 
+write\+\_\+wb&"{}wb"{} -\/ Write only, creates/overwrites, binary mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{append\_ab@{append\_ab}!File Opening Modes@{File Opening Modes}}\index{File Opening Modes@{File Opening Modes}!append\_ab@{append\_ab}}}\Hypertarget{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa7af6e00d67b492b81a9dfdf435e5b4f9}\label{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa7af6e00d67b492b81a9dfdf435e5b4f9} 
+append\+\_\+ab&"{}ab"{} -\/ Append only, writes to end, binary mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{read\_write\_r\_b@{read\_write\_r\_b}!File Opening Modes@{File Opening Modes}}\index{File Opening Modes@{File Opening Modes}!read\_write\_r\_b@{read\_write\_r\_b}}}\Hypertarget{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743faaef882729694175c59cf873d32560920}\label{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743faaef882729694175c59cf873d32560920} 
+read\+\_\+write\+\_\+r\+\_\+b&"{}r+b"{} -\/ Read and write, file must exist, binary mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{write\_read\_w\_b@{write\_read\_w\_b}!File Opening Modes@{File Opening Modes}}\index{File Opening Modes@{File Opening Modes}!write\_read\_w\_b@{write\_read\_w\_b}}}\Hypertarget{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fabde51015fcc71ac4bff7fd47c6d29736}\label{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fabde51015fcc71ac4bff7fd47c6d29736} 
+write\+\_\+read\+\_\+w\+\_\+b&"{}w+b"{} -\/ Read and write, creates/overwrites, binary mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{append\_read\_a\_b@{append\_read\_a\_b}!File Opening Modes@{File Opening Modes}}\index{File Opening Modes@{File Opening Modes}!append\_read\_a\_b@{append\_read\_a\_b}}}\Hypertarget{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa96539ba40214979946c58a9cb1d66347}\label{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa96539ba40214979946c58a9cb1d66347} 
+append\+\_\+read\+\_\+a\+\_\+b&"{}a+b"{} -\/ Read and write, appends to end, binary mode \\
+\hline
+
+\end{DoxyEnumFields}

@@ -1,0 +1,539 @@
+\doxysection{ufo\+::udir\+\_\+t Class Reference}
+\hypertarget{classufo_1_1udir__t}{}\label{classufo_1_1udir__t}\index{ufo::udir\_t@{ufo::udir\_t}}
+
+
+Directory operations class for ESP32 file systems.  
+
+
+
+
+{\ttfamily \#include $<$udir.\+h$>$}
+
+
+
+Collaboration diagram for ufo\+::udir\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classufo_1_1udir__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors \& Destructor}\par
+{\em ======================================================================== }\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classufo_1_1udir__t_a7d23e1b5e7129e06de563b918ae93f36}{udir\+\_\+t}} (const fs\+::path \&\mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}}, bool create\+\_\+if\+\_\+not\+\_\+exists=false)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classufo_1_1udir__t_a5190930cc59983a630742ea7d88b6a6d}{udir\+\_\+t}} (\mbox{\hyperlink{classufo_1_1udir__t}{udir\+\_\+t}} \&\&other) noexcept
+\item 
+\mbox{\hyperlink{classufo_1_1udir__t}{udir\+\_\+t}} \& \mbox{\hyperlink{classufo_1_1udir__t_a44605032ba74303eb0fa9c317e1bfaa6}{operator=}} (\mbox{\hyperlink{classufo_1_1udir__t}{udir\+\_\+t}} \&\&other) noexcept
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ State Information}\par
+{\em \hypertarget{classufo_1_1udir__t_autotoc_md0}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1udir__t_autotoc_md0}
+======================================================================== }\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_a99b902e023104606f16b3e790af746a1}{is\+\_\+valid}} () const
+\begin{DoxyCompactList}\small\item\em Check object validity. \end{DoxyCompactList}\item 
+const fs\+::path \& \mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}} () const
+\begin{DoxyCompactList}\small\item\em Get directory path. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classufo_1_1udir__t_a31cffbdc04121af9f13926eeeb6c6247}{last\+\_\+error}} () const
+\begin{DoxyCompactList}\small\item\em Get the latest error (errno) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Subdirectory Operations}\par
+{\em \hypertarget{classufo_1_1udir__t_autotoc_md1}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1udir__t_autotoc_md1}
+======================================================================== }\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_a42895a422c8c557a5f50234c81e8356b}{create\+\_\+subdir}} (const fs\+::path \&name)
+\begin{DoxyCompactList}\small\item\em Create a subdirectory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_a0ffd065e6ca476d3edef6a8f4ca717fc}{remove\+\_\+subdir}} (const fs\+::path \&name, bool recursive=false)
+\begin{DoxyCompactList}\small\item\em Delete subdirectory. Must be empty if not use recursive flag. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_a79b82913ff07e36dd65467923ec0e8a5}{subdir\+\_\+exists}} (const fs\+::path \&name) const
+\begin{DoxyCompactList}\small\item\em Check if subdirectory exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ File Operations}\par
+{\em \hypertarget{classufo_1_1udir__t_autotoc_md2}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1udir__t_autotoc_md2}
+======================================================================== }\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classufo_1_1ufile__t}{ufile\+\_\+t}} \mbox{\hyperlink{classufo_1_1udir__t_aea71760c153192482745a092aca2e3f7}{get\+\_\+file}} (const fs\+::path \&name)
+\begin{DoxyCompactList}\small\item\em Get a file from this directory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_afaad821144ed22cfd7de745c11a945fe}{file\+\_\+exists}} (const fs\+::path \&name) const
+\begin{DoxyCompactList}\small\item\em Check if file exists in this directory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_a8f800bd00697ad1dfc69a463790642e3}{remove\+\_\+file}} (const fs\+::path \&name)
+\begin{DoxyCompactList}\small\item\em Delete file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_a86bd8153580070f177238afae9302024}{rename\+\_\+file}} (const fs\+::path \&old\+\_\+name, const fs\+::path \&new\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Rename the file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_a16e3e1eece28cc285de392e42454e0bb}{copy\+\_\+file}} (const fs\+::path \&src\+\_\+name, const fs\+::path \&dst\+\_\+name, bool current\+\_\+dir=true, size\+\_\+t buffer\+\_\+size=4096) const
+\begin{DoxyCompactList}\small\item\em Copy file. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classufo_1_1udir__t_ae43b37ceae5064bd195992b8dfe04673}{file\+\_\+size}} (const fs\+::path \&name) const
+\begin{DoxyCompactList}\small\item\em Get file valid size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Listing and Information}\par
+{\em \hypertarget{classufo_1_1udir__t_autotoc_md3}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1udir__t_autotoc_md3}
+======================================================================== }\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classufo_1_1udir__t_ad145f13f10da4ae840232ddaeaf3da07}{list\+\_\+files}} (const char \texorpdfstring{$\ast$}{*}pattern=nullptr) const
+\begin{DoxyCompactList}\small\item\em Get a list of files in a directory. \end{DoxyCompactList}\item 
+std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ \mbox{\hyperlink{classufo_1_1udir__t_aeb7717ef6bdb6d2c0865f153af4efac3}{item\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Get folder item count. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classufo_1_1udir__t_a547a9b8d5895faa4acd0831c349a26c0}{list\+\_\+subdirs}} () const
+\begin{DoxyCompactList}\small\item\em Get a list of subdirectories. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structufo_1_1file__info__t}{file\+\_\+info\+\_\+t}} $>$ \mbox{\hyperlink{classufo_1_1udir__t_a7054ba1dfeaa415a50cf77cc74762fcb}{list\+\_\+details}} () const
+\begin{DoxyCompactList}\small\item\em Get detailed information about the contents of this directory. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classufo_1_1udir__t_a4f363bf56dd6f8977110b38f5a12e564}{list\+\_\+recursive}} (bool relative\+\_\+paths) const
+\begin{DoxyCompactList}\small\item\em Recursively get the paths of the contents of this directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Recursive Operations}
+\hypertarget{classufo_1_1udir__t_autotoc_md4}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1udir__t_autotoc_md4}
+======================================================================== \begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_a24952a6bd54f38d00d13481488b190df}{copy\+\_\+recursive}} (const fs\+::path \&dst) const
+\begin{DoxyCompactList}\small\item\em Recursively copies the contents of this directory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_abbe342bbfe14a4b4a9ef6a7a933b6209}{remove\+\_\+recursive}} ()
+\begin{DoxyCompactList}\small\item\em Recursively deletes the contents of this directory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1udir__t_aa6353db0ab622dbf70bbf4a5e74d87aa}{supports\+\_\+directories}} () const
+\begin{DoxyCompactList}\small\item\em Check if this dirrectory support directory. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{group__fs__types_ga6359347c3bbf34215ab1d92e61954080}{ufs\+\_\+type\+\_\+t}} \mbox{\hyperlink{classufo_1_1udir__t_a5144dc2026340c76712b1e772daa8d75}{get\+\_\+fs\+\_\+type}} (const fs\+::path \&\mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}})
+\begin{DoxyCompactList}\small\item\em Define fs type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Directory operations class for ESP32 file systems. 
+
+\hypertarget{classufo_1_1udir__t_example_basic}{}\doxysubsection{\texorpdfstring{Basic Usage}{Basic Usage}}\label{classufo_1_1udir__t_example_basic}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ directory\ object\ (auto-\/create\ if\ not\ exists)}}
+\DoxyCodeLine{\mbox{\hyperlink{classufo_1_1udir__t_a7d23e1b5e7129e06de563b918ae93f36}{udir\_t}}\ dir(\textcolor{stringliteral}{"{}/spiffs/config"{}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (dir.is\_valid())\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ subdirectory}}
+\DoxyCodeLine{\ \ \ \ dir.create\_subdir(\textcolor{stringliteral}{"{}backup"{}});}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ List\ all\ JSON\ files}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ files\ =\ dir.list\_files(\textcolor{stringliteral}{"{}*.json"{}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ file\ :\ files)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Found:\ \%s\(\backslash\)n"{}},\ file.c\_str());}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Provides an interface for operations on files and subdirectories taking into account the features of different file systems (SPIFFS, Little\+FS, FAT).
+
+\begin{DoxyNote}{Note}
+Features\+:
+\begin{DoxyItemize}
+\item SPIFFS\+: flat structure, directories are emulated through prefixes
+\item Little\+FS/\+FAT\+: full directory hierarchy
+\item Does not support copying and moving between different file systems
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+The class is not thread safe. For use from different tasks require external synchronization.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classufo_1_1ufile__t}{ufile\+\_\+t} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classufo_1_1udir__t_a7d23e1b5e7129e06de563b918ae93f36}\label{classufo_1_1udir__t_a7d23e1b5e7129e06de563b918ae93f36} 
+\index{ufo::udir\_t@{ufo::udir\_t}!udir\_t@{udir\_t}}
+\index{udir\_t@{udir\_t}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{udir\_t()}{udir\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily ufo\+::udir\+\_\+t\+::udir\+\_\+t (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path,  }\item[{bool}]{create\+\_\+if\+\_\+not\+\_\+exists = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the directory (for example, "{}/spiffs/config"{}) \\
+\hline
+{\em create\+\_\+if\+\_\+not\+\_\+exists} & Create a directory if it does not exist \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If create\+\_\+if\+\_\+not\+\_\+exists = false and the directory does not exist, the object will be in an invalid state (\doxylink{classufo_1_1udir__t_a99b902e023104606f16b3e790af746a1}{is\+\_\+valid()} = false) ~\newline
+ 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_a5190930cc59983a630742ea7d88b6a6d}\label{classufo_1_1udir__t_a5190930cc59983a630742ea7d88b6a6d} 
+\index{ufo::udir\_t@{ufo::udir\_t}!udir\_t@{udir\_t}}
+\index{udir\_t@{udir\_t}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{udir\_t()}{udir\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily ufo\+::udir\+\_\+t\+::udir\+\_\+t (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classufo_1_1udir__t}{udir\+\_\+t}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classufo_1_1udir__t_a16e3e1eece28cc285de392e42454e0bb}\label{classufo_1_1udir__t_a16e3e1eece28cc285de392e42454e0bb} 
+\index{ufo::udir\_t@{ufo::udir\_t}!copy\_file@{copy\_file}}
+\index{copy\_file@{copy\_file}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{copy\_file()}{copy\_file()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::copy\+\_\+file (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{src\+\_\+name,  }\item[{const fs\+::path \&}]{dst\+\_\+name,  }\item[{bool}]{current\+\_\+dir = {\ttfamily true},  }\item[{size\+\_\+t}]{buffer\+\_\+size = {\ttfamily 4096} }\end{DoxyParamCaption}) const}
+
+
+
+Copy file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src\+\_\+name} & Name (only) of file in this directory \\
+\hline
+{\em dst\+\_\+name} & Name (only) if file will be in this directory, otherwise write full path and set current\+\_\+dir flag \\
+\hline
+{\em current\+\_\+dir} & If you want to copy file into this directory \\
+\hline
+{\em buffer\+\_\+size} & Size of buffer to copy (default 4096) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1udir__t_a24952a6bd54f38d00d13481488b190df}\label{classufo_1_1udir__t_a24952a6bd54f38d00d13481488b190df} 
+\index{ufo::udir\_t@{ufo::udir\_t}!copy\_recursive@{copy\_recursive}}
+\index{copy\_recursive@{copy\_recursive}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{copy\_recursive()}{copy\_recursive()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::copy\+\_\+recursive (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{dst }\end{DoxyParamCaption}) const}
+
+
+
+Recursively copies the contents of this directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & full path to new directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+On SPIFFS, always do nothing 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_a42895a422c8c557a5f50234c81e8356b}\label{classufo_1_1udir__t_a42895a422c8c557a5f50234c81e8356b} 
+\index{ufo::udir\_t@{ufo::udir\_t}!create\_subdir@{create\_subdir}}
+\index{create\_subdir@{create\_subdir}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{create\_subdir()}{create\_subdir()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::create\+\_\+subdir (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Create a subdirectory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Subdirectory name (only). Does not support recursive creation of a directory like /a/b/c \\
+\hline
+{\em create\+\_\+parents} & Whether to create parent directories \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful or the directory already exists 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Always returns false on SPIFFS (not supported) 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_afaad821144ed22cfd7de745c11a945fe}\label{classufo_1_1udir__t_afaad821144ed22cfd7de745c11a945fe} 
+\index{ufo::udir\_t@{ufo::udir\_t}!file\_exists@{file\_exists}}
+\index{file\_exists@{file\_exists}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{file\_exists()}{file\_exists()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::file\+\_\+exists (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Check if file exists in this directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Path relative to this directory \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classufo_1_1udir__t_ae43b37ceae5064bd195992b8dfe04673}\label{classufo_1_1udir__t_ae43b37ceae5064bd195992b8dfe04673} 
+\index{ufo::udir\_t@{ufo::udir\_t}!file\_size@{file\_size}}
+\index{file\_size@{file\_size}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{file\_size()}{file\_size()}}
+{\footnotesize\ttfamily size\+\_\+t ufo\+::udir\+\_\+t\+::file\+\_\+size (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Get file valid size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name (only) of file in this directory \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classufo_1_1udir__t_aea71760c153192482745a092aca2e3f7}\label{classufo_1_1udir__t_aea71760c153192482745a092aca2e3f7} 
+\index{ufo::udir\_t@{ufo::udir\_t}!get\_file@{get\_file}}
+\index{get\_file@{get\_file}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{get\_file()}{get\_file()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\+\_\+t}} ufo\+::udir\+\_\+t\+::get\+\_\+file (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a file from this directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name (only) of file in this directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns \doxylink{classufo_1_1ufile__t}{ufile\+\_\+t} in unopened state 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1udir__t_a5144dc2026340c76712b1e772daa8d75}\label{classufo_1_1udir__t_a5144dc2026340c76712b1e772daa8d75} 
+\index{ufo::udir\_t@{ufo::udir\_t}!get\_fs\_type@{get\_fs\_type}}
+\index{get\_fs\_type@{get\_fs\_type}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{get\_fs\_type()}{get\_fs\_type()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{group__fs__types_ga6359347c3bbf34215ab1d92e61954080}{ufs\+\_\+type\+\_\+t}} ufo\+::udir\+\_\+t\+::get\+\_\+fs\+\_\+type (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Define fs type. 
+
+\Hypertarget{classufo_1_1udir__t_a99b902e023104606f16b3e790af746a1}\label{classufo_1_1udir__t_a99b902e023104606f16b3e790af746a1} 
+\index{ufo::udir\_t@{ufo::udir\_t}!is\_valid@{is\_valid}}
+\index{is\_valid@{is\_valid}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{is\_valid()}{is\_valid()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::is\+\_\+valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check object validity. 
+
+\begin{DoxyReturn}{Returns}
+true if the directory exists and is accessible 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1udir__t_aeb7717ef6bdb6d2c0865f153af4efac3}\label{classufo_1_1udir__t_aeb7717ef6bdb6d2c0865f153af4efac3} 
+\index{ufo::udir\_t@{ufo::udir\_t}!item\_count@{item\_count}}
+\index{item\_count@{item\_count}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{item\_count()}{item\_count()}}
+{\footnotesize\ttfamily std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$ ufo\+::udir\+\_\+t\+::item\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get folder item count. 
+
+\begin{DoxyReturn}{Returns}
+\{ dcount, fcount \} ~\newline
+ 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1udir__t_a31cffbdc04121af9f13926eeeb6c6247}\label{classufo_1_1udir__t_a31cffbdc04121af9f13926eeeb6c6247} 
+\index{ufo::udir\_t@{ufo::udir\_t}!last\_error@{last\_error}}
+\index{last\_error@{last\_error}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{last\_error()}{last\_error()}}
+{\footnotesize\ttfamily int ufo\+::udir\+\_\+t\+::last\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the latest error (errno) 
+
+\Hypertarget{classufo_1_1udir__t_a7054ba1dfeaa415a50cf77cc74762fcb}\label{classufo_1_1udir__t_a7054ba1dfeaa415a50cf77cc74762fcb} 
+\index{ufo::udir\_t@{ufo::udir\_t}!list\_details@{list\_details}}
+\index{list\_details@{list\_details}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{list\_details()}{list\_details()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structufo_1_1file__info__t}{file\+\_\+info\+\_\+t}} $>$ ufo\+::udir\+\_\+t\+::list\+\_\+details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get detailed information about the contents of this directory. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$ with details 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1udir__t_ad145f13f10da4ae840232ddaeaf3da07}\label{classufo_1_1udir__t_ad145f13f10da4ae840232ddaeaf3da07} 
+\index{ufo::udir\_t@{ufo::udir\_t}!list\_files@{list\_files}}
+\index{list\_files@{list\_files}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{list\_files()}{list\_files()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ ufo\+::udir\+\_\+t\+::list\+\_\+files (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{pattern = {\ttfamily nullptr} }\end{DoxyParamCaption}) const}
+
+
+
+Get a list of files in a directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pattern} & Filter by name (wildcard, for example "{}\texorpdfstring{$\ast$}{*}.\+json"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$ with file names 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1udir__t_a4f363bf56dd6f8977110b38f5a12e564}\label{classufo_1_1udir__t_a4f363bf56dd6f8977110b38f5a12e564} 
+\index{ufo::udir\_t@{ufo::udir\_t}!list\_recursive@{list\_recursive}}
+\index{list\_recursive@{list\_recursive}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{list\_recursive()}{list\_recursive()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ ufo\+::udir\+\_\+t\+::list\+\_\+recursive (\begin{DoxyParamCaption}\item[{bool}]{relative\+\_\+paths }\end{DoxyParamCaption}) const}
+
+
+
+Recursively get the paths of the contents of this directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relative\+\_\+paths} & If true paths relative to this directory, otherwise full paths \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$ -\/ list of pathes 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+On SPIFFS, always call \doxylink{classufo_1_1udir__t_ad145f13f10da4ae840232ddaeaf3da07}{list\+\_\+files()} 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_a547a9b8d5895faa4acd0831c349a26c0}\label{classufo_1_1udir__t_a547a9b8d5895faa4acd0831c349a26c0} 
+\index{ufo::udir\_t@{ufo::udir\_t}!list\_subdirs@{list\_subdirs}}
+\index{list\_subdirs@{list\_subdirs}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{list\_subdirs()}{list\_subdirs()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ ufo\+::udir\+\_\+t\+::list\+\_\+subdirs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get a list of subdirectories. 
+
+\begin{DoxyReturn}{Returns}
+A vector with subdirectory names 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+On SPIFFS, always returns an empty list 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_a44605032ba74303eb0fa9c317e1bfaa6}\label{classufo_1_1udir__t_a44605032ba74303eb0fa9c317e1bfaa6} 
+\index{ufo::udir\_t@{ufo::udir\_t}!operator=@{operator=}}
+\index{operator=@{operator=}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classufo_1_1udir__t}{udir\+\_\+t}} \& ufo\+::udir\+\_\+t\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classufo_1_1udir__t}{udir\+\_\+t}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}\label{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf} 
+\index{ufo::udir\_t@{ufo::udir\_t}!path@{path}}
+\index{path@{path}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{path()}{path()}}
+{\footnotesize\ttfamily const fs\+::path \& ufo\+::udir\+\_\+t\+::path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get directory path. 
+
+\Hypertarget{classufo_1_1udir__t_a8f800bd00697ad1dfc69a463790642e3}\label{classufo_1_1udir__t_a8f800bd00697ad1dfc69a463790642e3} 
+\index{ufo::udir\_t@{ufo::udir\_t}!remove\_file@{remove\_file}}
+\index{remove\_file@{remove\_file}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{remove\_file()}{remove\_file()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::remove\+\_\+file (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Delete file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name (only) of file in this directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+On SPIFFS the file must be closed before deleting 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_abbe342bbfe14a4b4a9ef6a7a933b6209}\label{classufo_1_1udir__t_abbe342bbfe14a4b4a9ef6a7a933b6209} 
+\index{ufo::udir\_t@{ufo::udir\_t}!remove\_recursive@{remove\_recursive}}
+\index{remove\_recursive@{remove\_recursive}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{remove\_recursive()}{remove\_recursive()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::remove\+\_\+recursive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Recursively deletes the contents of this directory. 
+
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+On SPIFFS, always do nothing 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_a0ffd065e6ca476d3edef6a8f4ca717fc}\label{classufo_1_1udir__t_a0ffd065e6ca476d3edef6a8f4ca717fc} 
+\index{ufo::udir\_t@{ufo::udir\_t}!remove\_subdir@{remove\_subdir}}
+\index{remove\_subdir@{remove\_subdir}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{remove\_subdir()}{remove\_subdir()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::remove\+\_\+subdir (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{name,  }\item[{bool}]{recursive = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Delete subdirectory. Must be empty if not use recursive flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Subdirectory name (only). \\
+\hline
+{\em recursive} & Delete directory with all contents \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful or the directory already exists 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Always returns false on SPIFFS (not supported) 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_a86bd8153580070f177238afae9302024}\label{classufo_1_1udir__t_a86bd8153580070f177238afae9302024} 
+\index{ufo::udir\_t@{ufo::udir\_t}!rename\_file@{rename\_file}}
+\index{rename\_file@{rename\_file}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{rename\_file()}{rename\_file()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::rename\+\_\+file (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{old\+\_\+name,  }\item[{const fs\+::path \&}]{new\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Rename the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em old\+\_\+name} & Name (only) of file in this directory \\
+\hline
+{\em new\+\_\+name} & Name (only) of new file that be located in this directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+On SPIFFS the file must be closed before renaming 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_a79b82913ff07e36dd65467923ec0e8a5}\label{classufo_1_1udir__t_a79b82913ff07e36dd65467923ec0e8a5} 
+\index{ufo::udir\_t@{ufo::udir\_t}!subdir\_exists@{subdir\_exists}}
+\index{subdir\_exists@{subdir\_exists}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{subdir\_exists()}{subdir\_exists()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::subdir\+\_\+exists (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Check if subdirectory exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Subdirectory name (only). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful or the directory already exists 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Always returns false on SPIFFS (not supported) 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1udir__t_aa6353db0ab622dbf70bbf4a5e74d87aa}\label{classufo_1_1udir__t_aa6353db0ab622dbf70bbf4a5e74d87aa} 
+\index{ufo::udir\_t@{ufo::udir\_t}!supports\_directories@{supports\_directories}}
+\index{supports\_directories@{supports\_directories}!ufo::udir\_t@{ufo::udir\_t}}
+\doxysubsubsection{\texorpdfstring{supports\_directories()}{supports\_directories()}}
+{\footnotesize\ttfamily bool ufo\+::udir\+\_\+t\+::supports\+\_\+directories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if this dirrectory support directory. 
+
+\hypertarget{classufo_1_1udir__t_autotoc_md5}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1udir__t_autotoc_md5}
+\begin{DoxyNote}{Note}
+Only spiffs are not support 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/onen-\/touw/\+Documents/u\+\_\+fv/u\+\_\+gte/lib/uffs/src/uffs/\mbox{\hyperlink{udir_8h}{udir.\+h}}\item 
+/home/onen-\/touw/\+Documents/u\+\_\+fv/u\+\_\+gte/lib/uffs/src/uffs/\mbox{\hyperlink{udir_8cpp}{udir.\+cpp}}\end{DoxyCompactItemize}

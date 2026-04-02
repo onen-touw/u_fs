@@ -1,0 +1,584 @@
+\doxysection{ufo\+::ufile\+\_\+t Class Reference}
+\hypertarget{classufo_1_1ufile__t}{}\label{classufo_1_1ufile__t}\index{ufo::ufile\_t@{ufo::ufile\_t}}
+
+
+RAII wrapper for C FILE\texorpdfstring{$\ast$}{*} operations.  
+
+
+
+
+{\ttfamily \#include $<$ufile.\+h$>$}
+
+
+
+Collaboration diagram for ufo\+::ufile\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classufo_1_1ufile__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors \& Destructor}\par
+{\em ======================================================================== }\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3}{ufile\+\_\+t}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor Creates an invalid object, requiring a call to \doxylink{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e}{open()} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classufo_1_1ufile__t_a251b888fb16156978f321610ab1d84b4}{ufile\+\_\+t}} (const fs\+::path \&\mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}})
+\begin{DoxyCompactList}\small\item\em Constructor with path Creates an invalid object, requiring a call to \doxylink{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e}{open()} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classufo_1_1ufile__t_a1f6eb79108fe4e34d59369a9505ad777}{ufile\+\_\+t}} (const fs\+::path \&\mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}}, \mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\+\_\+mode}} mode)
+\begin{DoxyCompactList}\small\item\em Constructor that opens a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classufo_1_1ufile__t_a255b8f99793d6942b504bff6163606f2}{\texorpdfstring{$\sim$}{\string~}ufile\+\_\+t}} ()
+\begin{DoxyCompactList}\small\item\em Destructor Automatically closes the file if it was open. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classufo_1_1ufile__t_a198709c1413434c950993174182da4ba}{ufile\+\_\+t}} (\mbox{\hyperlink{classufo_1_1ufile__t}{ufile\+\_\+t}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classufo_1_1ufile__t}{ufile\+\_\+t}} \& \mbox{\hyperlink{classufo_1_1ufile__t_a8315ef37a3bd8cf6045d3042fa730c7a}{operator=}} (\mbox{\hyperlink{classufo_1_1ufile__t}{ufile\+\_\+t}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ File Operations}\par
+{\em \hypertarget{classufo_1_1ufile__t_autotoc_md6}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1ufile__t_autotoc_md6}
+======================================================================== }\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e}{open}} (const fs\+::path \&\mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}}, \mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\+\_\+mode}} mode)
+\begin{DoxyCompactList}\small\item\em Open a file (if the object hasn\textquotesingle{}t been opened previously) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1ufile__t_a2475a1767032bc4f4abd6c67d6807f19}{open}} (\mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\+\_\+mode}} mode)
+\begin{DoxyCompactList}\small\item\em Open the file (if the object hasn\textquotesingle{}t been opened previously) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classufo_1_1ufile__t_a689070b3ada7503d9f48e78df866b50b}{close}} ()
+\begin{DoxyCompactList}\small\item\em Close file Safe to call multiple times (repeat calls are ignored) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1ufile__t_ad7c9cad99a6ccfb342994bb1e340168b}{is\+\_\+open}} () const
+\begin{DoxyCompactList}\small\item\em Check if the file is open. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Read/\+Write Operations}\par
+{\em \hypertarget{classufo_1_1ufile__t_autotoc_md7}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1ufile__t_autotoc_md7}
+======================================================================== }\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classufo_1_1ufile__t_a87a2d5abc62a98ae7a50062587ab7030}{read}} (void \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t \mbox{\hyperlink{classufo_1_1ufile__t_abd6b996249cbe9ea56ac2c0c70d1a679}{size}})
+\begin{DoxyCompactList}\small\item\em Read data from the file. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classufo_1_1ufile__t_a33cb6aa9f6a609ebfd48ac508e87acf3}{write}} (const void \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t \mbox{\hyperlink{classufo_1_1ufile__t_abd6b996249cbe9ea56ac2c0c70d1a679}{size}})
+\begin{DoxyCompactList}\small\item\em Write data to the file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1ufile__t_af7434c0ee12f84ca84ba9a6f8921319c}{getline}} (char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t max\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Read one line (until \textquotesingle{}~\newline
+\textquotesingle{} or end of file) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1ufile__t_a31fdc488ab51507cc03e493c04fa326d}{getline}} (std\+::string \&line, char delimiter=\textquotesingle{}\textbackslash{}n\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Read a line into std\+::string (convenient version) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classufo_1_1ufile__t_a337cccd74ef2d214715d12c483b9540e}{m\+\_\+handle}} = nullptr
+\begin{DoxyCompactList}\small\item\em C file handle. \end{DoxyCompactList}\item 
+fs\+::path \mbox{\hyperlink{classufo_1_1ufile__t_a1824c923b654abfcf1a907ba2277abbf}{m\+\_\+path}}
+\begin{DoxyCompactList}\small\item\em File path (normalized) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classufo_1_1ufile__t_ab1a0ee947e79879d2281c1d004812dd3}{m\+\_\+last\+\_\+error}} = 0
+\begin{DoxyCompactList}\small\item\em Last errno value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{File Positioning}
+\hypertarget{classufo_1_1ufile__t_autotoc_md8}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1ufile__t_autotoc_md8}
+======================================================================== \begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classufo_1_1ufile__t_aa591cbfff94c6d6b9f7b272412717173}{eof}} () const
+\begin{DoxyCompactList}\small\item\em Check for end-\/of-\/file. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classufo_1_1ufile__t_abd6b996249cbe9ea56ac2c0c70d1a679}{size}} () const
+\begin{DoxyCompactList}\small\item\em Get the file size in bytes. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classufo_1_1ufile__t_a21891d4fcf98f41c1f22aa36ae88b90c}{tell}} () const
+\begin{DoxyCompactList}\small\item\em Get the current position in the file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1ufile__t_afffc2cdbb4840ac1866be463a3b7475d}{seek}} (long offset, \mbox{\hyperlink{group__seek__origins_ga135fecd64ec45f067eca4fcd2a60a221}{seek\+\_\+origin}} origin=\mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221acdaeeeba9b4a4c5ebf042c0215a7bb0e}{seek\+\_\+origin\+::set}})
+\begin{DoxyCompactList}\small\item\em Set the file position. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1ufile__t_a65431f8bed4cc5b7e1f78e1562835943}{rewind}} ()
+\begin{DoxyCompactList}\small\item\em Move to the beginning of the file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classufo_1_1ufile__t_a224d9d7c8788123374d8e1b8d3a9f199}{flush}} ()
+\begin{DoxyCompactList}\small\item\em Flush file buffers to disk. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classufo_1_1ufile__t_a43bdb98d90a2e082692ba7312624d0a9}{copy}} (const fs\+::path \&src, const fs\+::path \&dst, size\+\_\+t buffer\+\_\+size=4096)
+\begin{DoxyCompactList}\small\item\em Copy a file. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classufo_1_1ufile__t_a7f31518f0f76031428aafb75685d3055}{exists}} (const fs\+::path \&\mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}})
+\begin{DoxyCompactList}\small\item\em Check for file existence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Error Handling \& Utilities}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classufo_1_1ufile__t_aea7b26d5c11ec20710c64ebe04f17f18}{last\+\_\+error}} () const
+\begin{DoxyCompactList}\small\item\em Get the last error. \end{DoxyCompactList}\item 
+const fs\+::path \& \mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}} () const
+\begin{DoxyCompactList}\small\item\em Get the path to the file (if given) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classufo_1_1ufile__t_a181d39d985ca95d379f58a20b29f0157}{operator bool}} () const
+\begin{DoxyCompactList}\small\item\em Check the validity of an object (can be used in if) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+RAII wrapper for C FILE\texorpdfstring{$\ast$}{*} operations. 
+
+This class provides automatic resource management for file operations. It wraps standard C file functions (fopen, fclose, fread, fwrite, etc.) with RAII semantics and move support.\hypertarget{classufo_1_1ufile__t_example_usage}{}\doxysubsection{\texorpdfstring{Example Usage}{Example Usage}}\label{classufo_1_1ufile__t_example_usage}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Basic\ file\ operations}}
+\DoxyCodeLine{\mbox{\hyperlink{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3}{ufile\_t}}\ file(\textcolor{stringliteral}{"{}/spiffs/config.json"{}},\ \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa5f417e38a0e68ae1d604017efefeacd5}{file\_mode::read\_rb}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (file)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{char}\ buffer[256];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{size\_t}\ bytes\ =\ file.read(buffer,\ \textcolor{keyword}{sizeof}(buffer));}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ ...\ process\ data}}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ Auto-\/closed}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Move\ semantics}}
+\DoxyCodeLine{\mbox{\hyperlink{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3}{ufile\_t}}\ create\_file(\textcolor{stringliteral}{"{}/tmp/data.txt"{}},\ \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa4e74980eb6561eaf1bba98587be4ca64}{file\_mode::write\_wb}});}
+\DoxyCodeLine{create\_file.write(\textcolor{stringliteral}{"{}Hello"{}},\ 5);}
+\DoxyCodeLine{\mbox{\hyperlink{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3}{ufile\_t}}\ moved\_file\ =\ std::move(create\_file);\ \textcolor{comment}{//\ create\_file\ is\ now\ invalid}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Static\ utilities}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classufo_1_1ufile__t_a7f31518f0f76031428aafb75685d3055}{ufile\_t::exists}}(\textcolor{stringliteral}{"{}/spiffs/config.json"{}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t_a43bdb98d90a2e082692ba7312624d0a9}{ufile\_t::copy}}(\textcolor{stringliteral}{"{}/spiffs/config.json"{}},\ \textcolor{stringliteral}{"{}/spiffs/config.json.bak"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{classufo_1_1ufile__t_thread_safety}{}\doxysubsection{\texorpdfstring{Thread Safety}{Thread Safety}}\label{classufo_1_1ufile__t_thread_safety}
+
+\begin{DoxyItemize}
+\item Different instances for different files are safe to use from different Free\+RTOS tasks
+\item One instance is NOT safe to use from different tasks without external synchronization (mutex)
+\item Individual method calls (read\+\_\+rb/write) are atomic at the VFS level, but the sequence of operations requires synchronization
+\end{DoxyItemize}
+
+\begin{DoxyWarning}{Warning}
+Not thread-\/safe for same instance across multiple tasks
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+All methods return a bool to indicate success/failure. Detailed error information can be obtained via \doxylink{classufo_1_1ufile__t_aea7b26d5c11ec20710c64ebe04f17f18}{last\+\_\+error()}
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e}{ufile\+\_\+t\+::open()}, \doxylink{classufo_1_1ufile__t_a689070b3ada7503d9f48e78df866b50b}{ufile\+\_\+t\+::close()}, \doxylink{classufo_1_1ufile__t_a87a2d5abc62a98ae7a50062587ab7030}{ufile\+\_\+t\+::read()}, \doxylink{classufo_1_1ufile__t_a33cb6aa9f6a609ebfd48ac508e87acf3}{ufile\+\_\+t\+::write()} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3}\label{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!ufile\_t@{ufile\_t}}
+\index{ufile\_t@{ufile\_t}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{ufile\_t()}{ufile\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily ufo\+::ufile\+\_\+t\+::ufile\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor Creates an invalid object, requiring a call to \doxylink{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e}{open()} 
+
+\Hypertarget{classufo_1_1ufile__t_a251b888fb16156978f321610ab1d84b4}\label{classufo_1_1ufile__t_a251b888fb16156978f321610ab1d84b4} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!ufile\_t@{ufile\_t}}
+\index{ufile\_t@{ufile\_t}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{ufile\_t()}{ufile\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily ufo\+::ufile\+\_\+t\+::ufile\+\_\+t (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with path Creates an invalid object, requiring a call to \doxylink{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e}{open()} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & File path (in VFS ESP-\/\+IDF format, e.\+g. "{}/spiffs/config.\+txt"{}) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classufo_1_1ufile__t_a1f6eb79108fe4e34d59369a9505ad777}\label{classufo_1_1ufile__t_a1f6eb79108fe4e34d59369a9505ad777} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!ufile\_t@{ufile\_t}}
+\index{ufile\_t@{ufile\_t}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{ufile\_t()}{ufile\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily ufo\+::ufile\+\_\+t\+::ufile\+\_\+t (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path,  }\item[{\mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\+\_\+mode}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Constructor that opens a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the file (in VFS ESP-\/\+IDF format, e.\+g. "{}/spiffs/config.\+txt"{}) \\
+\hline
+{\em mode} & Open mode \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classufo_1_1ufile__t_a255b8f99793d6942b504bff6163606f2}\label{classufo_1_1ufile__t_a255b8f99793d6942b504bff6163606f2} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!````~ufile\_t@{\texorpdfstring{$\sim$}{\string~}ufile\_t}}
+\index{````~ufile\_t@{\texorpdfstring{$\sim$}{\string~}ufile\_t}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ufile\_t()}{\string~ufile\_t()}}
+{\footnotesize\ttfamily ufo\+::ufile\+\_\+t\+::\texorpdfstring{$\sim$}{\string~}ufile\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor Automatically closes the file if it was open. 
+
+\Hypertarget{classufo_1_1ufile__t_a198709c1413434c950993174182da4ba}\label{classufo_1_1ufile__t_a198709c1413434c950993174182da4ba} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!ufile\_t@{ufile\_t}}
+\index{ufile\_t@{ufile\_t}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{ufile\_t()}{ufile\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily ufo\+::ufile\+\_\+t\+::ufile\+\_\+t (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classufo_1_1ufile__t}{ufile\+\_\+t}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classufo_1_1ufile__t_a689070b3ada7503d9f48e78df866b50b}\label{classufo_1_1ufile__t_a689070b3ada7503d9f48e78df866b50b} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!close@{close}}
+\index{close@{close}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void ufo\+::ufile\+\_\+t\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Close file Safe to call multiple times (repeat calls are ignored) 
+
+\Hypertarget{classufo_1_1ufile__t_a43bdb98d90a2e082692ba7312624d0a9}\label{classufo_1_1ufile__t_a43bdb98d90a2e082692ba7312624d0a9} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!copy@{copy}}
+\index{copy@{copy}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::copy (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{src,  }\item[{const fs\+::path \&}]{dst,  }\item[{size\+\_\+t}]{buffer\+\_\+size = {\ttfamily 4096} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Copy a file. 
+
+\hypertarget{classufo_1_1ufile__t_autotoc_md9}{}\doxysubsection{\texorpdfstring{@\}}{@\}}}\label{classufo_1_1ufile__t_autotoc_md9}
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Path to the source file \\
+\hline
+{\em dst} & Path to the destination file \\
+\hline
+{\em buffer\+\_\+size} & Buffer size for copying (default 4096 bytes) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Static method, uses buffered copying to save memory 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1ufile__t_aa591cbfff94c6d6b9f7b272412717173}\label{classufo_1_1ufile__t_aa591cbfff94c6d6b9f7b272412717173} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!eof@{eof}}
+\index{eof@{eof}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{eof()}{eof()}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::eof (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Check for end-\/of-\/file. 
+
+\begin{DoxyReturn}{Returns}
+true if end-\/of-\/file is reached or the file is not open 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1ufile__t_a7f31518f0f76031428aafb75685d3055}\label{classufo_1_1ufile__t_a7f31518f0f76031428aafb75685d3055} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!exists@{exists}}
+\index{exists@{exists}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::exists (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check for file existence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if file exists 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1ufile__t_a224d9d7c8788123374d8e1b8d3a9f199}\label{classufo_1_1ufile__t_a224d9d7c8788123374d8e1b8d3a9f199} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!flush@{flush}}
+\index{flush@{flush}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Flush file buffers to disk. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on error 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Ensures all buffered data is written to physical storage 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1ufile__t_af7434c0ee12f84ca84ba9a6f8921319c}\label{classufo_1_1ufile__t_af7434c0ee12f84ca84ba9a6f8921319c} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!getline@{getline}}
+\index{getline@{getline}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{getline()}{getline()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::getline (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{size\+\_\+t}]{max\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+Read one line (until \textquotesingle{}~\newline
+\textquotesingle{} or end of file) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Buffer for the line ​​\\
+\hline
+{\em max\+\_\+len} & Maximum buffer length (including the null terminator) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the line has been read, false on error or EOF 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The line is always null-\/terminated 
+
+The \textquotesingle{}~\newline
+\textquotesingle{} character is included in the line (if found) 
+\end{DoxyNote}
+\Hypertarget{classufo_1_1ufile__t_a31fdc488ab51507cc03e493c04fa326d}\label{classufo_1_1ufile__t_a31fdc488ab51507cc03e493c04fa326d} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!getline@{getline}}
+\index{getline@{getline}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{getline()}{getline()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::getline (\begin{DoxyParamCaption}\item[{std\+::string \&}]{line,  }\item[{char}]{delimiter = {\ttfamily \textquotesingle{}\textbackslash{}n\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Read a line into std\+::string (convenient version) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & String to output \\
+\hline
+{\em delimiter} & Line separator (default \textquotesingle{}~\newline
+\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the line was read, false on error or EOF 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+May cause heap fragmentation; use with caution in embedded applications 
+\end{DoxyWarning}
+\Hypertarget{classufo_1_1ufile__t_ad7c9cad99a6ccfb342994bb1e340168b}\label{classufo_1_1ufile__t_ad7c9cad99a6ccfb342994bb1e340168b} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!is\_open@{is\_open}}
+\index{is\_open@{is\_open}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{is\_open()}{is\_open()}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::is\+\_\+open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the file is open. 
+
+\begin{DoxyReturn}{Returns}
+true if the file is open and ready for operations 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1ufile__t_aea7b26d5c11ec20710c64ebe04f17f18}\label{classufo_1_1ufile__t_aea7b26d5c11ec20710c64ebe04f17f18} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!last\_error@{last\_error}}
+\index{last\_error@{last\_error}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{last\_error()}{last\_error()}}
+{\footnotesize\ttfamily int ufo\+::ufile\+\_\+t\+::last\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the last error. 
+
+\begin{DoxyReturn}{Returns}
+The errno value after the last operation 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e}\label{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!open@{open}}
+\index{open@{open}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::open (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path,  }\item[{\mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\+\_\+mode}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Open a file (if the object hasn\textquotesingle{}t been opened previously) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the file \\
+\hline
+{\em mode} & Open mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false if an error occurred
+\end{DoxyReturn}
+If file was already open, it will be closed first. \Hypertarget{classufo_1_1ufile__t_a2475a1767032bc4f4abd6c67d6807f19}\label{classufo_1_1ufile__t_a2475a1767032bc4f4abd6c67d6807f19} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!open@{open}}
+\index{open@{open}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\+\_\+mode}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Open the file (if the object hasn\textquotesingle{}t been opened previously) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & Open mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false if an error occurred
+\end{DoxyReturn}
+If file was already open, it will be closed first. \begin{DoxyPrecond}{Precondition}
+Object must have been constructed with a path 
+\end{DoxyPrecond}
+\Hypertarget{classufo_1_1ufile__t_a181d39d985ca95d379f58a20b29f0157}\label{classufo_1_1ufile__t_a181d39d985ca95d379f58a20b29f0157} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily ufo\+::ufile\+\_\+t\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Check the validity of an object (can be used in if) 
+
+\Hypertarget{classufo_1_1ufile__t_a8315ef37a3bd8cf6045d3042fa730c7a}\label{classufo_1_1ufile__t_a8315ef37a3bd8cf6045d3042fa730c7a} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!operator=@{operator=}}
+\index{operator=@{operator=}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\+\_\+t}} \& ufo\+::ufile\+\_\+t\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classufo_1_1ufile__t}{ufile\+\_\+t}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move assignment operator. 
+
+\Hypertarget{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}\label{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!path@{path}}
+\index{path@{path}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{path()}{path()}}
+{\footnotesize\ttfamily const fs\+::path \& ufo\+::ufile\+\_\+t\+::path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the path to the file (if given) 
+
+\Hypertarget{classufo_1_1ufile__t_a87a2d5abc62a98ae7a50062587ab7030}\label{classufo_1_1ufile__t_a87a2d5abc62a98ae7a50062587ab7030} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!read@{read}}
+\index{read@{read}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily size\+\_\+t ufo\+::ufile\+\_\+t\+::read (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Read data from the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the buffer to read from \\
+\hline
+{\em size} & Buffer size (number of bytes to read) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes actually read (0 on error or EOF) 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1ufile__t_a65431f8bed4cc5b7e1f78e1562835943}\label{classufo_1_1ufile__t_a65431f8bed4cc5b7e1f78e1562835943} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!rewind@{rewind}}
+\index{rewind@{rewind}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{rewind()}{rewind()}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::rewind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Move to the beginning of the file. 
+
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1ufile__t_afffc2cdbb4840ac1866be463a3b7475d}\label{classufo_1_1ufile__t_afffc2cdbb4840ac1866be463a3b7475d} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!seek@{seek}}
+\index{seek@{seek}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{seek()}{seek()}}
+{\footnotesize\ttfamily bool ufo\+::ufile\+\_\+t\+::seek (\begin{DoxyParamCaption}\item[{long}]{offset,  }\item[{\mbox{\hyperlink{group__seek__origins_ga135fecd64ec45f067eca4fcd2a60a221}{seek\+\_\+origin}}}]{origin = {\ttfamily \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221acdaeeeba9b4a4c5ebf042c0215a7bb0e}{seek\+\_\+origin\+::set}}} }\end{DoxyParamCaption})}
+
+
+
+Set the file position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & Offset \\
+\hline
+{\em origin} & Starting point (start, current position, end) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1ufile__t_abd6b996249cbe9ea56ac2c0c70d1a679}\label{classufo_1_1ufile__t_abd6b996249cbe9ea56ac2c0c70d1a679} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!size@{size}}
+\index{size@{size}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t ufo\+::ufile\+\_\+t\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the file size in bytes. 
+
+\begin{DoxyReturn}{Returns}
+File size, 0 on error (check \doxylink{classufo_1_1ufile__t_ad7c9cad99a6ccfb342994bb1e340168b}{is\+\_\+open()}) 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1ufile__t_a21891d4fcf98f41c1f22aa36ae88b90c}\label{classufo_1_1ufile__t_a21891d4fcf98f41c1f22aa36ae88b90c} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!tell@{tell}}
+\index{tell@{tell}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{tell()}{tell()}}
+{\footnotesize\ttfamily size\+\_\+t ufo\+::ufile\+\_\+t\+::tell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the current position in the file. 
+
+\begin{DoxyReturn}{Returns}
+The current position from the start, (size\+\_\+t)-\/1 on error 
+\end{DoxyReturn}
+\Hypertarget{classufo_1_1ufile__t_a33cb6aa9f6a609ebfd48ac508e87acf3}\label{classufo_1_1ufile__t_a33cb6aa9f6a609ebfd48ac508e87acf3} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!write@{write}}
+\index{write@{write}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily size\+\_\+t ufo\+::ufile\+\_\+t\+::write (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Write data to the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the data to write \\
+\hline
+{\em size} & Size of the data in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes actually written 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classufo_1_1ufile__t_a337cccd74ef2d214715d12c483b9540e}\label{classufo_1_1ufile__t_a337cccd74ef2d214715d12c483b9540e} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!m\_handle@{m\_handle}}
+\index{m\_handle@{m\_handle}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{m\_handle}{m\_handle}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} ufo\+::ufile\+\_\+t\+::m\+\_\+handle = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+C file handle. 
+
+\Hypertarget{classufo_1_1ufile__t_ab1a0ee947e79879d2281c1d004812dd3}\label{classufo_1_1ufile__t_ab1a0ee947e79879d2281c1d004812dd3} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!m\_last\_error@{m\_last\_error}}
+\index{m\_last\_error@{m\_last\_error}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{m\_last\_error}{m\_last\_error}}
+{\footnotesize\ttfamily int ufo\+::ufile\+\_\+t\+::m\+\_\+last\+\_\+error = 0\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [protected]}}
+
+
+
+Last errno value. 
+
+\Hypertarget{classufo_1_1ufile__t_a1824c923b654abfcf1a907ba2277abbf}\label{classufo_1_1ufile__t_a1824c923b654abfcf1a907ba2277abbf} 
+\index{ufo::ufile\_t@{ufo::ufile\_t}!m\_path@{m\_path}}
+\index{m\_path@{m\_path}!ufo::ufile\_t@{ufo::ufile\_t}}
+\doxysubsubsection{\texorpdfstring{m\_path}{m\_path}}
+{\footnotesize\ttfamily fs\+::path ufo\+::ufile\+\_\+t\+::m\+\_\+path\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+File path (normalized) 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/onen-\/touw/\+Documents/u\+\_\+fv/u\+\_\+gte/lib/uffs/src/uffs/\mbox{\hyperlink{ufile_8h}{ufile.\+h}}\item 
+/home/onen-\/touw/\+Documents/u\+\_\+fv/u\+\_\+gte/lib/uffs/src/uffs/\mbox{\hyperlink{ufile_8cpp}{ufile.\+cpp}}\end{DoxyCompactItemize}

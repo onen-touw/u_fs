@@ -1,0 +1,35 @@
+<map id="/home/onen&#45;touw/Documents/u_fv/u_gte/lib/uffs/src/uffs/udir.h" name="/home/onen&#45;touw/Documents/u_fv/u_gte/lib/uffs/src/uffs/udir.h">
+<area shape="rect" id="Node000001" title="Directory operations class for ESP32 file systems." alt="" coords="507,5,722,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,181,64,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="507,39,391,46,265,59,152,80,108,94,76,110,64,122,54,137,42,169,37,167,49,135,60,119,73,106,106,89,150,74,264,54,390,41,507,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="226,108,289,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="508,61,303,110,302,105,507,56"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="313,108,399,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="536,63,404,106,402,101,535,58"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="174,181,245,207"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="507,42,423,50,336,63,262,83,235,95,217,110,209,122,205,137,206,168,201,168,200,137,204,120,213,106,232,91,261,78,335,58,422,45,507,37"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="424,108,496,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="569,62,494,104,491,99,566,58"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="520,108,605,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="601,61,579,98,574,95,597,59"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="629,108,704,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="633,59,655,95,650,98,628,61"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="728,108,813,133"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="664,58,739,99,736,104,661,62"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="837,108,904,133"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="694,58,825,101,823,106,692,63"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="928,108,1016,133"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="723,57,915,103,914,108,722,62"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="1041,108,1103,133"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="723,48,864,73,1028,105,1027,111,863,78,722,54"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1128,108,1232,133"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="723,46,1115,105,1114,110,722,52"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1256,108,1347,133"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="723,41,957,67,1242,105,1242,110,957,72,722,47"/>
+<area shape="rect" id="Node000015" href="$ufile_8h.html" title="File operations class for ESP32 file systems." alt="" coords="87,108,150,133"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="508,53,348,79,170,111,164,112,163,107,169,105,347,73,507,48"/>
+<area shape="poly" id="edge16_Node000015_Node000002" title=" " alt="" coords="107,135,61,174,57,170,103,131"/>
+<area shape="poly" id="edge17_Node000015_Node000005" title=" " alt="" coords="135,131,185,170,182,175,132,135"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="88,181,149,207"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="121,134,121,168,116,168,116,134"/>
+</map>

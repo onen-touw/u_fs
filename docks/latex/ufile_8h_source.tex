@@ -1,0 +1,128 @@
+\doxysection{ufile.\+h}
+\hypertarget{ufile_8h_source}{}\label{ufile_8h_source}\index{/home/onen-\/touw/Documents/u\_fv/u\_gte/lib/uffs/src/uffs/ufile.h@{/home/onen-\/touw/Documents/u\_fv/u\_gte/lib/uffs/src/uffs/ufile.h}}
+\mbox{\hyperlink{ufile_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#if\ \_\_has\_include(<filesystem>)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ \#include\ <filesystem>}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#elif\ \_\_has\_include(<experimental/filesystem>)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \#include\ <experimental/filesystem>}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{namespace\ }fs\ =\ std::experimental::filesystem;}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \#error\ "{}filesystem\ not\ available"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ UFS\_SPIFFS\_MOUNTPOINT\ "{}/spiffs"{}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceufo}{ufo}}\ \{}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\_mode}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa5f417e38a0e68ae1d604017efefeacd5}{read\_rb}},\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa4e74980eb6561eaf1bba98587be4ca64}{write\_wb}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa7af6e00d67b492b81a9dfdf435e5b4f9}{append\_ab}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743faaef882729694175c59cf873d32560920}{read\_write\_r\_b}},\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fabde51015fcc71ac4bff7fd47c6d29736}{write\_read\_w\_b}},\ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa96539ba40214979946c58a9cb1d66347}{append\_read\_a\_b}}\ \ \ \ \ }
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{group__seek__origins_ga135fecd64ec45f067eca4fcd2a60a221}{seek\_origin}}\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221acdaeeeba9b4a4c5ebf042c0215a7bb0e}{set}}\ =\ SEEK\_SET,\ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221ab5fddf1ef601e74db01c1425561a38cb}{cur}}\ =\ SEEK\_CUR,\ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221a7f021a1415b86f2d013b2618fb31ae53}{end}}\ =\ SEEK\_END\ \ \ \ }
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}\ \{}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00113\ \ \ \ \ FILE*\ \mbox{\hyperlink{classufo_1_1ufile__t_a337cccd74ef2d214715d12c483b9540e}{m\_handle}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ fs::path\ \mbox{\hyperlink{classufo_1_1ufile__t_a1824c923b654abfcf1a907ba2277abbf}{m\_path}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classufo_1_1ufile__t_ab1a0ee947e79879d2281c1d004812dd3}{m\_last\_error}}\ =\ 0;\ \ \ }
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3}{ufile\_t}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00126\ \ \ \ \ }
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t_a251b888fb16156978f321610ab1d84b4}{ufile\_t}}(\textcolor{keyword}{const}\ fs::path\&\ \mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}})\ :\ \mbox{\hyperlink{classufo_1_1ufile__t_a1824c923b654abfcf1a907ba2277abbf}{m\_path}}(\mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}}.lexically\_normal())\{\}}
+\DoxyCodeLine{00131\ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3}{ufile\_t}}(\textcolor{keyword}{const}\ fs::path\&\ \ \mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}},\ \mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\_mode}}\ mode);}
+\DoxyCodeLine{00136\ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t_a255b8f99793d6942b504bff6163606f2}{\string~ufile\_t}}();}
+\DoxyCodeLine{00140\ \ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3}{ufile\_t}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}\&\ \mbox{\hyperlink{classufo_1_1ufile__t_a8315ef37a3bd8cf6045d3042fa730c7a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t_aad1ed4cf3dc5e3150bb6d8d667de8ee3}{ufile\_t}}(\mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00148\ \ \ \ \ }
+\DoxyCodeLine{00150\ \ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}\&\ \mbox{\hyperlink{classufo_1_1ufile__t_a8315ef37a3bd8cf6045d3042fa730c7a}{operator=}}(\mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00151\ \ \ \ \ }
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e}{open}}(\textcolor{keyword}{const}\ fs::path\&\ \mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}},\ \mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\_mode}}\ mode);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_aac5bf1dfe60e02938fc8456159bdca2e}{open}}(\mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\_mode}}\ mode);}
+\DoxyCodeLine{00172\ \ \ \ \ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classufo_1_1ufile__t_a689070b3ada7503d9f48e78df866b50b}{close}}();}
+\DoxyCodeLine{00176\ \ \ \ \ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_ad7c9cad99a6ccfb342994bb1e340168b}{is\_open}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classufo_1_1ufile__t_a337cccd74ef2d214715d12c483b9540e}{m\_handle}}\ !=\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00180\ \ \ \ \ }
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classufo_1_1ufile__t_a87a2d5abc62a98ae7a50062587ab7030}{read}}(\textcolor{keywordtype}{void}*\ buffer,\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classufo_1_1ufile__t_abd6b996249cbe9ea56ac2c0c70d1a679}{size}});}
+\DoxyCodeLine{00193\ \ \ \ \ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classufo_1_1ufile__t_a33cb6aa9f6a609ebfd48ac508e87acf3}{write}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buffer,\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classufo_1_1ufile__t_abd6b996249cbe9ea56ac2c0c70d1a679}{size}});}
+\DoxyCodeLine{00199\ \ \ \ \ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_af7434c0ee12f84ca84ba9a6f8921319c}{getline}}(\textcolor{keywordtype}{char}*\ buffer,\ \textcolor{keywordtype}{size\_t}\ max\_len);}
+\DoxyCodeLine{00207\ \ \ \ \ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_af7434c0ee12f84ca84ba9a6f8921319c}{getline}}(std::string\&\ line,\ \textcolor{keywordtype}{char}\ delimiter\ =\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00214\ \ \ \ \ }
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_aa591cbfff94c6d6b9f7b272412717173}{eof}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00225\ \ \ \ \ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classufo_1_1ufile__t_abd6b996249cbe9ea56ac2c0c70d1a679}{size}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00229\ \ \ \ \ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classufo_1_1ufile__t_a21891d4fcf98f41c1f22aa36ae88b90c}{tell}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00233\ \ \ \ \ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_afffc2cdbb4840ac1866be463a3b7475d}{seek}}(\textcolor{keywordtype}{long}\ offset,\ \mbox{\hyperlink{group__seek__origins_ga135fecd64ec45f067eca4fcd2a60a221}{seek\_origin}}\ origin\ =\ \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221acdaeeeba9b4a4c5ebf042c0215a7bb0e}{seek\_origin::set}});}
+\DoxyCodeLine{00239\ \ \ \ \ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_a65431f8bed4cc5b7e1f78e1562835943}{rewind}}();}
+\DoxyCodeLine{00243\ \ \ \ \ }
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_a224d9d7c8788123374d8e1b8d3a9f199}{flush}}();}
+\DoxyCodeLine{00248\ \ \ \ \ }
+\DoxyCodeLine{00251\ \ \ \ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_a43bdb98d90a2e082692ba7312624d0a9}{copy}}(\textcolor{keyword}{const}\ fs::path\&\ src,\ \textcolor{keyword}{const}\ fs::path\&\ dst,\ \textcolor{keywordtype}{size\_t}\ buffer\_size\ =\ 4096);}
+\DoxyCodeLine{00260\ \ \ \ \ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1ufile__t_a7f31518f0f76031428aafb75685d3055}{exists}}(\textcolor{keyword}{const}\ fs::path\&\ \mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}});}
+\DoxyCodeLine{00265\ \ \ \ \ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{comment}{//\ ========================================================================}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classufo_1_1ufile__t_aea7b26d5c11ec20710c64ebe04f17f18}{last\_error}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classufo_1_1ufile__t_ab1a0ee947e79879d2281c1d004812dd3}{m\_last\_error}};\ \}}
+\DoxyCodeLine{00273\ \ \ \ \ }
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keyword}{const}\ fs::path\&\ \mbox{\hyperlink{classufo_1_1ufile__t_a5137614b3bb9884c99327081e215171f}{path}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classufo_1_1ufile__t_a1824c923b654abfcf1a907ba2277abbf}{m\_path}};\ \}}
+\DoxyCodeLine{00276\ \ \ \ \ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classufo_1_1ufile__t_ad7c9cad99a6ccfb342994bb1e340168b}{is\_open}}();\ \}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00282\ \ \ \ \ }
+\DoxyCodeLine{00283\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ mode\_to\_string(\mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\_mode}}\ mode);}
+\DoxyCodeLine{00286\ \};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \}\ \textcolor{comment}{//\ namespace\ ufo}}
+
+\end{DoxyCode}

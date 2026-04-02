@@ -1,0 +1,212 @@
+\doxysection{udir.\+h}
+\hypertarget{udir_8h_source}{}\label{udir_8h_source}\index{/home/onen-\/touw/Documents/u\_fv/u\_gte/lib/uffs/src/uffs/udir.h@{/home/onen-\/touw/Documents/u\_fv/u\_gte/lib/uffs/src/uffs/udir.h}}
+\mbox{\hyperlink{udir_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <fnmatch.h>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <cerrno>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}u\_sys/btflg.h"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ufile_8h}{ufile.h}}"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#if\ \_\_has\_include(<filesystem>)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \ \ \#include\ <filesystem>}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#elif\ \_\_has\_include(<experimental/filesystem>)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \ \ \#include\ <experimental/filesystem>}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{namespace\ }fs\ =\ std::experimental::filesystem;}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\ \ \ \ \#error\ "{}filesystem\ not\ available"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ UFS\_SUPPORT\_UNKNOWN\_MOUNTPOINT}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceufo}{ufo}}\ \{}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{group__fs__types_ga6359347c3bbf34215ab1d92e61954080}{ufs\_type\_t}}\ }
+\DoxyCodeLine{00061\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080a0d8dc086e16e3ac48f05d555994da7d7}{fat}},}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080ac91eb4181a6f91852362f9fb5da31947}{spiffs}},}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080a7b425754b84d58fd72a5719cdccc3b0e}{littlefs}},}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080aad921d60486366258809553a3db49a4a}{unknown}},}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structufo_1_1file__info__t}{file\_info\_t}}}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ std::string\ \mbox{\hyperlink{structufo_1_1file__info__t_a7bc4db8362e1842b1a01eaa1b38d3ba4}{name}};\ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structufo_1_1file__info__t_ae38d32958bb1676cedfb6500d435b9f7}{size}};\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structufo_1_1file__info__t_a8a7d315f1b76dcd98cb17143422d6728}{is\_directory}};}
+\DoxyCodeLine{00082\ \ \ \ \ time\_t\ \mbox{\hyperlink{structufo_1_1file__info__t_a7942398d9f48fe2475b5ec30d46e380d}{modified}};}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classufo_1_1udir__t}{udir\_t}}\ \{}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{enum\ class}\ flag\_e}
+\DoxyCodeLine{00123\ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classufo_1_1udir__t_a99b902e023104606f16b3e790af746a1}{is\_valid}},}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ is\_root,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ support\_dir,}
+\DoxyCodeLine{00127\ \ \ \ \ \};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00130\ \ \ \ \ fs::path\ m\_path;\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_is\_valid;\ }
+\DoxyCodeLine{00132\ \ \ \ \ ufo::bit\_flag\_t<uint8\_t>\ m\_flags;}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keywordtype}{int}\ m\_last\_error;\ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classufo_1_1udir__t}{udir\_t}}(\textcolor{keyword}{const}\ fs::path\&\ \mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}},\ \textcolor{keywordtype}{bool}\ create\_if\_not\_exists\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{classufo_1_1udir__t_a5190930cc59983a630742ea7d88b6a6d}{udir\_t}}(\mbox{\hyperlink{classufo_1_1udir__t}{udir\_t}}\&\&\ other)\ noexcept\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ :\ m\_path(std::move(other.m\_path)),\ m\_is\_valid(other.m\_is\_valid),\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ m\_flags(other.m\_flags),\ m\_last\_error(other.m\_last\_error)\ }
+\DoxyCodeLine{00150\ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ other.m\_is\_valid\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ other.m\_flags.upd(0);}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{classufo_1_1udir__t}{udir\_t}}\&\ \mbox{\hyperlink{classufo_1_1udir__t_a44605032ba74303eb0fa9c317e1bfaa6}{operator=}}(\mbox{\hyperlink{classufo_1_1udir__t}{udir\_t}}\&\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\&other\ !=\ \textcolor{keyword}{this})}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_path\ =\ std::move(other.m\_path);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_is\_valid\ =\ other.m\_is\_valid;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_flags\ =\ other.m\_flags;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_last\_error\ =\ other.m\_last\_error;\ }
+\DoxyCodeLine{00162\ \ \ \ \ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other.m\_is\_valid\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other.m\_flags.upd(0);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00170\ \ \ \ \ \mbox{\hyperlink{classufo_1_1udir__t}{udir\_t}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classufo_1_1udir__t}{udir\_t}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00171\ \ \ \ \ \mbox{\hyperlink{classufo_1_1udir__t}{udir\_t}}\&\ \mbox{\hyperlink{classufo_1_1udir__t_a44605032ba74303eb0fa9c317e1bfaa6}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classufo_1_1udir__t}{udir\_t}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_a99b902e023104606f16b3e790af746a1}{is\_valid}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_is\_valid;\ \}}
+\DoxyCodeLine{00184\ \ \ \ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{const}\ fs::path\&\ \mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_path;\ \}}
+\DoxyCodeLine{00187\ \ \ \ \ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classufo_1_1udir__t_a31cffbdc04121af9f13926eeeb6c6247}{last\_error}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_last\_error;\ \}}
+\DoxyCodeLine{00190\ \ \ \ \ }
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_a42895a422c8c557a5f50234c81e8356b}{create\_subdir}}(\textcolor{keyword}{const}\ fs::path\&\ name);}
+\DoxyCodeLine{00206\ \ \ \ \ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_a0ffd065e6ca476d3edef6a8f4ca717fc}{remove\_subdir}}(\textcolor{keyword}{const}\ fs::path\&\ name,\ \textcolor{keywordtype}{bool}\ recursive\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00213\ \ \ \ \ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_a79b82913ff07e36dd65467923ec0e8a5}{subdir\_exists}}(\textcolor{keyword}{const}\ fs::path\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00222\ \ \ \ \ }
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}\ \mbox{\hyperlink{classufo_1_1udir__t_aea71760c153192482745a092aca2e3f7}{get\_file}}(\textcolor{keyword}{const}\ fs::path\ \&name)}
+\DoxyCodeLine{00231\ \ \ \ \ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classufo_1_1udir__t_afaad821144ed22cfd7de745c11a945fe}{file\_exists}}(name))}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}();}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ full\ =\ m\_path\ /\ name;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\_t}}(full.c\_str());}
+\DoxyCodeLine{00240\ \ \ \ \ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_afaad821144ed22cfd7de745c11a945fe}{file\_exists}}(\textcolor{keyword}{const}\ fs::path\ \&name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_a8f800bd00697ad1dfc69a463790642e3}{remove\_file}}(\textcolor{keyword}{const}\ fs::path\&\ name);}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_a86bd8153580070f177238afae9302024}{rename\_file}}(\textcolor{keyword}{const}\ fs::path\ \&\ old\_name,\ \textcolor{keyword}{const}\ fs::path\ \&\ new\_name);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_a16e3e1eece28cc285de392e42454e0bb}{copy\_file}}(\textcolor{keyword}{const}\ fs::path\ \&\ src\_name,\ \textcolor{keyword}{const}\ fs::path\ \&\ dst\_name,\ \textcolor{keywordtype}{bool}\ current\_dir\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{size\_t}\ buffer\_size\ =\ 4096)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classufo_1_1udir__t_ae43b37ceae5064bd195992b8dfe04673}{file\_size}}(\textcolor{keyword}{const}\ fs::path\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00273\ \ \ \ \ }
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00281\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classufo_1_1udir__t_ad145f13f10da4ae840232ddaeaf3da07}{list\_files}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pattern\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00285\ \ \ \ \ std::pair<size\_t,\ size\_t>\ \mbox{\hyperlink{classufo_1_1udir__t_aeb7717ef6bdb6d2c0865f153af4efac3}{item\_count}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00286\ \ \ \ \ }
+\DoxyCodeLine{00290\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classufo_1_1udir__t_a547a9b8d5895faa4acd0831c349a26c0}{list\_subdirs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00294\ \ \ \ \ std::vector<file\_info\_t>\ \mbox{\hyperlink{classufo_1_1udir__t_a7054ba1dfeaa415a50cf77cc74762fcb}{list\_details}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00300\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classufo_1_1udir__t_a4f363bf56dd6f8977110b38f5a12e564}{list\_recursive}}(\textcolor{keywordtype}{bool}\ relative\_paths)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00304\ \ \ \ \ }
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_a24952a6bd54f38d00d13481488b190df}{copy\_recursive}}(\textcolor{keyword}{const}\ fs::path\&\ dst)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00313\ \ \ \ \ }
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_abbe342bbfe14a4b4a9ef6a7a933b6209}{remove\_recursive}}();}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00321\ \ \ \ \ }
+\DoxyCodeLine{00322\ \ \ \ \ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classufo_1_1udir__t_aa6353db0ab622dbf70bbf4a5e74d87aa}{supports\_directories}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ m\_flags.get(flag\_e::support\_dir);\}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordtype}{bool}\ copy\_recursive\_impl(\textcolor{keyword}{const}\ fs::path\&\ src,\ \textcolor{keyword}{const}\ fs::path\&\ dst)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordtype}{bool}\ remove\_recursive\_impl(\textcolor{keyword}{const}\ fs::path\&\ \mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}});}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordtype}{void}\ walk\_recursive(\textcolor{keyword}{const}\ fs::path\&\ current,\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\&\ result,}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ relative\_paths)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{group__fs__types_ga6359347c3bbf34215ab1d92e61954080}{ufs\_type\_t}}\ \mbox{\hyperlink{classufo_1_1udir__t_a5144dc2026340c76712b1e772daa8d75}{get\_fs\_type}}(\textcolor{keyword}{const}\ fs::path\&\ \mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}})\ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ std::string\ str\ =\ \mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}}.string();}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str.find(\textcolor{stringliteral}{"{}/spiffs"{}})\ ==\ 0)\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080ac91eb4181a6f91852362f9fb5da31947}{ufs\_type\_t::spiffs}};}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str.find(\textcolor{stringliteral}{"{}/littlefs"{}})\ ==\ 0)\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080a7b425754b84d58fd72a5719cdccc3b0e}{ufs\_type\_t::littlefs}};}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str.find(\textcolor{stringliteral}{"{}/sdcard"{}})\ ==\ 0)\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080a0d8dc086e16e3ac48f05d555994da7d7}{ufs\_type\_t::fat}};}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str.find(\textcolor{stringliteral}{"{}/sdmmc"{}})\ ==\ 0)\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080a0d8dc086e16e3ac48f05d555994da7d7}{ufs\_type\_t::fat}};}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080aad921d60486366258809553a3db49a4a}{ufs\_type\_t::unknown}};}
+\DoxyCodeLine{00346\ \ \ \ \ \}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordtype}{bool}\ exists\_impl()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }stat\ st;}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stat(m\_path.c\_str(),\ \&st)\ !=\ 0)\ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ S\_ISDIR(st.st\_mode);}
+\DoxyCodeLine{00355\ \ \ \ \ \}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keyword}{static}\ fs::path\ normalize(\textcolor{keyword}{const}\ fs::path\&\ \mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}})\ \ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ std::string\ str\ =\ \mbox{\hyperlink{classufo_1_1udir__t_a89a9f06ce939c451d4ab81f015b8d3bf}{path}}.string();}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Удаляем\ trailing\ slash\ (кроме\ корня)}}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str.length()\ >\ 1\ \&\&\ str.back()\ ==\ \textcolor{charliteral}{'/'})\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ str.pop\_back();}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fs::path(str).lexically\_normal();}
+\DoxyCodeLine{00366\ \ \ \ \ \}}
+\DoxyCodeLine{00367\ \};}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \}\ \textcolor{comment}{//\ namespace\ ufo}}
+
+\end{DoxyCode}

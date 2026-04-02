@@ -1,0 +1,99 @@
+\doxysection{/home/onen-\/touw/\+Documents/u\+\_\+fv/u\+\_\+gte/lib/uffs/src/uffs/udir.h File Reference}
+\hypertarget{udir_8h}{}\label{udir_8h}\index{/home/onen-\/touw/Documents/u\_fv/u\_gte/lib/uffs/src/uffs/udir.h@{/home/onen-\/touw/Documents/u\_fv/u\_gte/lib/uffs/src/uffs/udir.h}}
+
+
+Directory operations class for ESP32 file systems.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$fnmatch.\+h$>$}\newline
+{\ttfamily \#include $<$cerrno$>$}\newline
+{\ttfamily \#include "{}u\+\_\+sys/btflg.\+h"{}}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include "{}ufile.\+h"{}}\newline
+Include dependency graph for udir.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{udir_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{udir_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structufo_1_1file__info__t}{ufo\+::file\+\_\+info\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Detailed file/directory information. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classufo_1_1udir__t}{ufo\+::udir\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Directory operations class for ESP32 file systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceufo}{ufo}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{udir_8h_a953c353ebb5a63808469ac071c6e3e2c}{UFS\+\_\+\+SUPPORT\+\_\+\+UNKNOWN\+\_\+\+MOUNTPOINT}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__fs__types_ga6359347c3bbf34215ab1d92e61954080}{ufo\+::ufs\+\_\+type\+\_\+t}} \{ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080a0d8dc086e16e3ac48f05d555994da7d7}{ufo\+::ufs\+\_\+type\+\_\+t\+::fat}}
+, \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080ac91eb4181a6f91852362f9fb5da31947}{ufo\+::ufs\+\_\+type\+\_\+t\+::spiffs}}
+, \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080a7b425754b84d58fd72a5719cdccc3b0e}{ufo\+::ufs\+\_\+type\+\_\+t\+::littlefs}}
+, \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080aad921d60486366258809553a3db49a4a}{ufo\+::ufs\+\_\+type\+\_\+t\+::unknown}}
+ \}
+\begin{DoxyCompactList}\small\item\em Supported file system types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Directory operations class for ESP32 file systems. 
+
+\begin{DoxyAuthor}{Author}
+Your Name \href{mailto:your.email@example.com}{\texttt{ your.\+email@example.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2026 
+\end{DoxyDate}
+Provides comprehensive directory and file operations for different file systems on ESP32 (SPIFFS, Little\+FS, FAT). Handles FS-\/specific features like SPIFFS flat structure.
+
+\begin{DoxyNote}{Note}
+SPIFFS Limitations\+:
+\begin{DoxyItemize}
+\item No real directories (emulated via prefixes)
+\item create\+\_\+subdir() and remove\+\_\+subdir() return false
+\item list\+\_\+subdirs() always returns empty
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2026 @license MIT 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{udir_8h_a953c353ebb5a63808469ac071c6e3e2c}\label{udir_8h_a953c353ebb5a63808469ac071c6e3e2c} 
+\index{udir.h@{udir.h}!UFS\_SUPPORT\_UNKNOWN\_MOUNTPOINT@{UFS\_SUPPORT\_UNKNOWN\_MOUNTPOINT}}
+\index{UFS\_SUPPORT\_UNKNOWN\_MOUNTPOINT@{UFS\_SUPPORT\_UNKNOWN\_MOUNTPOINT}!udir.h@{udir.h}}
+\doxysubsubsection{\texorpdfstring{UFS\_SUPPORT\_UNKNOWN\_MOUNTPOINT}{UFS\_SUPPORT\_UNKNOWN\_MOUNTPOINT}}
+{\footnotesize\ttfamily \#define UFS\+\_\+\+SUPPORT\+\_\+\+UNKNOWN\+\_\+\+MOUNTPOINT}
+

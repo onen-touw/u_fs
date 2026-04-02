@@ -1,0 +1,76 @@
+/**
+@mainpage UFO File System Library
+
+@version 1.0.0
+@author Your Name
+
+@section intro Введение
+
+Библиотека для работы с файловыми системами на ESP32, поддерживающая:
+- **SPIFFS**
+- **LittleFS**
+- **FAT** (SD card)
+
+@section features Возможности
+
+@subsection file_features Работа с файлами (ufile_t)
+- RAII обертка для FILE* операций
+- Поддержка move семантики
+- Чтение/запись данных
+- Позиционирование в файле
+- Копирование файлов
+
+@subsection dir_features Работа с директориями (udir_t)
+- Создание/удаление директорий
+- Листинг содержимого
+- Рекурсивные операции
+- Учет особенностей разных ФС (SPIFFS не поддерживает реальные директории)
+
+@section quickstart Быстрый старт
+
+@code{.cpp}
+#include "ufile.h"
+#include "udir.h"
+
+// Работа с файлом
+ufo::ufile_t file("/spiffs/config.json", ufo::file_mode::read_rb);
+if (file) {
+    char buffer[256];
+    size_t bytes = file.read(buffer, sizeof(buffer));
+    printf("Read %d bytes: %s\n", bytes, buffer);
+}
+
+// Работа с директорией
+ufo::udir_t dir("/spiffs", true);
+if (dir.is_valid()) {
+    auto files = dir.list_files("*.json");
+    for (const auto& f : files) {
+        printf("Found: %s\n", f.c_str());
+    }
+}
+@endcode
+
+@section main_classes Основные классы
+
+| Класс | Описание |
+|-------|----------|
+| @ref ufo::ufile_t | RAII обертка для файловых операций |
+| @ref ufo::udir_t | Операции с директориями |
+
+@section notes Особенности
+
+- **SPIFFS**: не поддерживает реальные директории (эмуляция через префиксы)
+- **LittleFS/FAT**: полная поддержка иерархии директорий
+- Классы не потокобезопасны, требуется внешняя синхронизация
+
+@section license Лицензия
+
+MIT License
+
+@see @ref ufo::ufile_t
+@see @ref ufo::udir_t
+@see @ref file_modes
+@see @ref seek_origins
+@see @ref fs_types
+@see @ref file_info
+*/

@@ -1,0 +1,91 @@
+\doxysection{/home/onen-\/touw/\+Documents/u\+\_\+fv/u\+\_\+gte/lib/uffs/src/uffs/ufile.h File Reference}
+\hypertarget{ufile_8h}{}\label{ufile_8h}\index{/home/onen-\/touw/Documents/u\_fv/u\_gte/lib/uffs/src/uffs/ufile.h@{/home/onen-\/touw/Documents/u\_fv/u\_gte/lib/uffs/src/uffs/ufile.h}}
+
+
+File operations class for ESP32 file systems.  
+
+
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+Include dependency graph for ufile.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{ufile_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ufile_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classufo_1_1ufile__t}{ufo\+::ufile\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em RAII wrapper for C FILE\texorpdfstring{$\ast$}{*} operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceufo}{ufo}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ufile_8h_a4fbbe99f77bc6176b90a5be5ccb5840c}{UFS\+\_\+\+SPIFFS\+\_\+\+MOUNTPOINT}}~"{}/spiffs"{}
+\begin{DoxyCompactList}\small\item\em works with std\+::filesystem \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{ufo\+::file\+\_\+mode}} \{ \newline
+\mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa5f417e38a0e68ae1d604017efefeacd5}{ufo\+::file\+\_\+mode\+::read\+\_\+rb}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa4e74980eb6561eaf1bba98587be4ca64}{ufo\+::file\+\_\+mode\+::write\+\_\+wb}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa7af6e00d67b492b81a9dfdf435e5b4f9}{ufo\+::file\+\_\+mode\+::append\+\_\+ab}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743faaef882729694175c59cf873d32560920}{ufo\+::file\+\_\+mode\+::read\+\_\+write\+\_\+r\+\_\+b}}
+, \newline
+\mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fabde51015fcc71ac4bff7fd47c6d29736}{ufo\+::file\+\_\+mode\+::write\+\_\+read\+\_\+w\+\_\+b}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa96539ba40214979946c58a9cb1d66347}{ufo\+::file\+\_\+mode\+::append\+\_\+read\+\_\+a\+\_\+b}}
+ \}
+\begin{DoxyCompactList}\small\item\em File opening modes. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__seek__origins_ga135fecd64ec45f067eca4fcd2a60a221}{ufo\+::seek\+\_\+origin}} \{ \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221acdaeeeba9b4a4c5ebf042c0215a7bb0e}{ufo\+::seek\+\_\+origin\+::set}} = SEEK\+\_\+\+SET
+, \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221ab5fddf1ef601e74db01c1425561a38cb}{ufo\+::seek\+\_\+origin\+::cur}} = SEEK\+\_\+\+CUR
+, \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221a7f021a1415b86f2d013b2618fb31ae53}{ufo\+::seek\+\_\+origin\+::end}} = SEEK\+\_\+\+END
+ \}
+\begin{DoxyCompactList}\small\item\em Seek origin for file positioning. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File operations class for ESP32 file systems. 
+
+\begin{DoxyAuthor}{Author}
+onen-\/touw \href{mailto:your.email@example.com}{\texttt{ your.\+email@example.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2026 
+\end{DoxyDate}
+Provides RAII wrapper for FILE\texorpdfstring{$\ast$}{*} operations with support for different file systems (SPIFFS, Little\+FS, FAT) on ESP32. Supports move semantics and comprehensive error handling.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2026 @license MIT 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{ufile_8h_a4fbbe99f77bc6176b90a5be5ccb5840c}\label{ufile_8h_a4fbbe99f77bc6176b90a5be5ccb5840c} 
+\index{ufile.h@{ufile.h}!UFS\_SPIFFS\_MOUNTPOINT@{UFS\_SPIFFS\_MOUNTPOINT}}
+\index{UFS\_SPIFFS\_MOUNTPOINT@{UFS\_SPIFFS\_MOUNTPOINT}!ufile.h@{ufile.h}}
+\doxysubsubsection{\texorpdfstring{UFS\_SPIFFS\_MOUNTPOINT}{UFS\_SPIFFS\_MOUNTPOINT}}
+{\footnotesize\ttfamily \#define UFS\+\_\+\+SPIFFS\+\_\+\+MOUNTPOINT~"{}/spiffs"{}}
+
+
+
+works with std\+::filesystem 
+

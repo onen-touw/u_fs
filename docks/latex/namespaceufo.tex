@@ -1,0 +1,35 @@
+\doxysection{ufo Namespace Reference}
+\hypertarget{namespaceufo}{}\label{namespaceufo}\index{ufo@{ufo}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structufo_1_1file__info__t}{file\+\_\+info\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Detailed file/directory information. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classufo_1_1udir__t}{udir\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Directory operations class for ESP32 file systems. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classufo_1_1ufile__t}{ufile\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em RAII wrapper for C FILE\texorpdfstring{$\ast$}{*} operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__fs__types_ga6359347c3bbf34215ab1d92e61954080}{ufs\+\_\+type\+\_\+t}} \{ \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080a0d8dc086e16e3ac48f05d555994da7d7}{ufs\+\_\+type\+\_\+t\+::fat}}
+, \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080ac91eb4181a6f91852362f9fb5da31947}{ufs\+\_\+type\+\_\+t\+::spiffs}}
+, \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080a7b425754b84d58fd72a5719cdccc3b0e}{ufs\+\_\+type\+\_\+t\+::littlefs}}
+, \mbox{\hyperlink{group__fs__types_gga6359347c3bbf34215ab1d92e61954080aad921d60486366258809553a3db49a4a}{ufs\+\_\+type\+\_\+t\+::unknown}}
+ \}
+\begin{DoxyCompactList}\small\item\em Supported file system types. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__file__modes_gaba6db49965e70d9dff27cb2a6872743f}{file\+\_\+mode}} \{ \newline
+\mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa5f417e38a0e68ae1d604017efefeacd5}{file\+\_\+mode\+::read\+\_\+rb}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa4e74980eb6561eaf1bba98587be4ca64}{file\+\_\+mode\+::write\+\_\+wb}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa7af6e00d67b492b81a9dfdf435e5b4f9}{file\+\_\+mode\+::append\+\_\+ab}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743faaef882729694175c59cf873d32560920}{file\+\_\+mode\+::read\+\_\+write\+\_\+r\+\_\+b}}
+, \newline
+\mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fabde51015fcc71ac4bff7fd47c6d29736}{file\+\_\+mode\+::write\+\_\+read\+\_\+w\+\_\+b}}
+, \mbox{\hyperlink{group__file__modes_ggaba6db49965e70d9dff27cb2a6872743fa96539ba40214979946c58a9cb1d66347}{file\+\_\+mode\+::append\+\_\+read\+\_\+a\+\_\+b}}
+ \}
+\begin{DoxyCompactList}\small\item\em File opening modes. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__seek__origins_ga135fecd64ec45f067eca4fcd2a60a221}{seek\+\_\+origin}} \{ \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221acdaeeeba9b4a4c5ebf042c0215a7bb0e}{seek\+\_\+origin\+::set}} = SEEK\+\_\+\+SET
+, \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221ab5fddf1ef601e74db01c1425561a38cb}{seek\+\_\+origin\+::cur}} = SEEK\+\_\+\+CUR
+, \mbox{\hyperlink{group__seek__origins_gga135fecd64ec45f067eca4fcd2a60a221a7f021a1415b86f2d013b2618fb31ae53}{seek\+\_\+origin\+::end}} = SEEK\+\_\+\+END
+ \}
+\begin{DoxyCompactList}\small\item\em Seek origin for file positioning. \end{DoxyCompactList}\end{DoxyCompactItemize}
